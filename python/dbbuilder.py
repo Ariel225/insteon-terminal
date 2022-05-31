@@ -46,12 +46,12 @@ class DBBuilder(MsgListener):
         msg.setByte("userData5", 0)
         iofun.writeMsg(msg)
         outchars("sent db query msg, incoming records: ")
-        self.timer = Timer(20.0, self.giveUp)
+        self.timer = Timer(30.0, self.giveUp)
         self.timer.start()
     def restartTimer(self):
         if self.timer:
             self.timer.cancel()
-        self.timer = Timer(20.0, self.giveUp)
+        self.timer = Timer(30.0, self.giveUp)
         self.timer.start()
     def giveUp(self):
         out(" did not get full database, giving up!")
